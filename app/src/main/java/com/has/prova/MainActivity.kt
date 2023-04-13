@@ -1,5 +1,4 @@
 package com.has.prova
-
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -15,17 +14,25 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        // Encontra o botão de calcular a data e define um listener para ele
         val calButton: Button = findViewById(R.id.calcdate)
         calButton.setOnClickListener {
+            // Chama a função getSigno() quando o botão é clicado
+            getSigno()
         }
 
-        val toast = Toast.makeText(this, "Seu signo é ", Toast.LENGTH_SHORT).show()
-        calButton.setOnClickListener {
+        // Cria uma mensagem de "Seu signo é" para exibir como Toast
+        val toast = Toast.makeText(this, "Seu signo é ", Toast.LENGTH_SHORT)
 
+        // Define um segundo listener para o botão de calcular data para exibir a mensagem de Toast
+        calButton.setOnClickListener {
+            toast.show()
         }
     }
 
-private   fun extractDateParts(dateString: String): Pair<Int, Int> {
+    // Função que extrai o dia e o mês da data fornecida
+    private fun extractDateParts(dateString: String): Pair<Int, Int> {
         val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
         val date = dateFormat.parse(dateString)
 
@@ -38,12 +45,15 @@ private   fun extractDateParts(dateString: String): Pair<Int, Int> {
         return Pair(day, month)
     }
 
+    // Função que obtém o signo com base na data fornecida e exibe a imagem correspondente
     fun getSigno() {
         val dataText: EditText = findViewById(R.id.datadado)
-        val dataString = dataText.toString()
+        val dataString = dataText.text.toString()
+
+        // Extrai o dia e o mês da data fornecida
         val (day, month) = extractDateParts(dataString)
 
-
+        // Usa a data para determinar o signo correspondente
         val signo = when (month) {
             1 -> if (day <= 20) "Capricórnio" else "Aquário"
             2 -> if (day <= 19) "Aquário" else "Peixes"
@@ -59,29 +69,13 @@ private   fun extractDateParts(dateString: String): Pair<Int, Int> {
             else -> if (day <= 21) "Sagitário" else "Capricórnio"
         }
 
+        // Encontra a ImageView para exibir a imagem correspondente ao signo
+        val signoimagem: ImageView = findViewById(R.id.imagesign)
 
-
-            val signoimagem: ImageView = findViewById(R.id.imagesign)
-            val drawableResource = when (signo) {
-                "Áries" -> R.drawable.sign_3
-                "Touro" -> R.drawable.sign_4
-                "Gêmeos" -> R.drawable.sign_5
-                "Câncer" -> R.drawable.sign_6
-                "Leão" -> R.drawable.sign_7
-                "Virgem" -> R.drawable.sign_8
-                "Libra" -> R.drawable.sign_9
-                "Escorpião" -> R.drawable.sign_10
-                "Sagitário" -> R.drawable.sign_11
-                "Capricórnio" -> R.drawable.sign_12
-                "Peixes" -> R.drawable.sign_2
-                else -> R.drawable.sign_1
-            }
-            signoimagem.setImageResource(drawableResource)
-
-
-        }
+        // Usa o nome do signo para determinar o recurso de imagem correspondente
+        val drawableResource = signo
     }
-
+}
 
 
 

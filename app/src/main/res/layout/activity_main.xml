@@ -4,8 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:background="@drawable/fundo_degrade_dourado">
+    android:background="@drawable/fundo_degrade_dourado"
+    android:foreground="@drawable/fundo_degrade_dourado"
+    tools:context=".MainActivity">
 
     <Button
         android:id="@+id/calcdate"
@@ -17,7 +18,7 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.524" />
+        app:layout_constraintVertical_bias="0.522" />
 
     <EditText
         android:id="@+id/datadado"
