@@ -1,10 +1,16 @@
+ <head>
+    <title>Projeto de Cálculo de Signo do Zodíaco</title>
+  </head>
+  <body>
+    <h1>Projeto de Cálculo de Signo do Zodíaco</h1>
+    <p>Este é um projeto de exemplo de um aplicativo Android para calcular o signo do zodíaco com base na data de nascimento fornecida pelo usuário.</p>
+
 <h2>Requisitos</h2>
 <p>Para executar este aplicativo, você precisará do seguinte:</p>
 <ul>
   <li>Android Studio instalado em seu computador</li>
   <li>Um dispositivo Android ou emulador para testar o aplicativo</li>
 </ul>
-
 <h2>Como executar</h2>
 <ol>
   <li>Faça o download ou clone este repositório em seu computador.</li>
